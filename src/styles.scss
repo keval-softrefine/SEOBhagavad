@@ -1,0 +1,128 @@
+/* tailwind css */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Fonts  */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary--color: #ea7c05;
+  --primary-light-color: #feb626;
+  --primary-dark-color: #d55900;
+
+  --background-color: #f6f9fc;
+}
+
+.light-theme {
+  --background-color: #f6f9fc;
+  --text-color: #1a1a1a;
+}
+
+.dark-theme {
+  --background-color: #1a1a1a;
+  --text-color: #f5f5f5;
+}
+
+* {
+  @apply box-border m-0 p-0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.content-container {
+  @apply mx-auto;
+  width: 80%;
+
+  @media screen and (max-width: 1366px){
+    width: 88%;
+  }
+}
+
+.section {
+  @apply pt-24 pb-10;
+
+  @screen sm-max {
+    @apply pt-10;
+  }
+}
+
+
+.loading-spinner {
+  @apply flex justify-center items-center;
+  height: 100vh;
+  .custom-spinner .p-progress-spinner-circle {
+      animation: custom-progress-spinner-dash 1.5s ease-in-out infinite, custom-progress-spinner-color 6s ease-in-out infinite;
+  }
+}
+
+
+.primary-text-color {
+  color: var(--primary--color);
+}
+
+.common-flex-center {
+  @apply flex items-center justify-center;
+}
+
+@keyframes custom-progress-spinner-color {
+  100%,
+  0% {
+      stroke: var(--primary--color);
+  }
+  40% {
+      stroke: var(--primary-light-color);
+  }
+  66% {
+      stroke: var(--primary--color);
+  }
+  80%,
+  90% {
+      stroke: var(--primary-dark-color);
+  }
+}
+
+
+@keyframes custom-progress-spinner-dash {
+  0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+  }
+  50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35px;
+  }
+  100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124px;
+  }
+}
+
+::selection {
+  background-color: var(--primary--color);
+  color: #f5f5f5;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  height: calc(100% - 60px);
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary--color); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary--color); 
+}

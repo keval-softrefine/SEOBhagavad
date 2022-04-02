@@ -1,0 +1,51 @@
+.chapters {
+    &__container {
+        grid-template-columns: (repeat(auto-fill, 355px));
+        grid-gap: 2rem;
+
+        @screen md-max {
+            grid-template-columns: (repeat(auto-fill, 310px));
+        }
+
+        @screen sm-max {
+            grid-template-columns: (repeat(auto-fill, 100%));
+        }
+    }
+
+    &__summary {
+        line-height: 30px;
+        .primary-text-color {
+            @apply font-semibold;
+        }
+    }
+
+    &__card {
+        background-color: #fff;
+        // width: 360px;
+        height: 125px;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        transition: all 0.3s ease-in;
+        &:hover {
+            transform: scale(1.05);
+            background-color: var(--primary-light-color);
+            color: #fff !important;
+            transition: all 0.3s ease-in;
+        }
+
+        &:hover .chapters__text, 
+        &:hover .chapters__verses {
+            color: #fff;
+            transition: all 0.3s ease-in;
+        }
+
+        @screen sm-max {
+            @apply w-auto;
+        }
+    }
+
+    &__text,
+    &__verses{
+        font-size: 14px;
+        transition: all 0.3s ease-in;
+    }
+}

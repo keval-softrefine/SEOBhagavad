@@ -1,0 +1,136 @@
+.chapter {
+    &__title {
+        @apply flex items-baseline pb-4 mb-6;
+
+        @screen sm-max {
+            @apply flex-col mb-2;
+        }
+
+        h1 {
+            font-size: 54px;
+            line-height: 32px;
+
+            @screen 2xl-max {
+                font-size: 45px;
+            }
+
+            @screen sm-max {
+                font-size: 30px;
+            }
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 24px;
+            color: var(--primary-light-color);
+        }
+    }
+
+    &__summary {
+        font-size: 18px;
+        line-height: 32px;
+
+        @screen 2xl-max {
+            font-size: 17px;
+        }
+
+        @screen sm-max {
+            font-size: 12px;
+            line-height: 20px;
+        }
+    }
+
+    .loading-spinner {
+        @apply mt-20;
+        height: auto;
+    }
+}
+
+.verses {
+    grid-template-columns: repeat(auto-fill, 350px);
+    grid-gap: 30px;
+
+    @screen md-max {
+        grid-template-columns: repeat(auto-fill, 310px);
+    }
+
+    @screen sm-max {
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
+
+    &__box {
+        // width: 350px;
+        min-height: 165px;
+        max-height: 220px;
+        line-height: 16px;
+        border: 1px solid var(--primary-light-color);
+        transition: all 0.2s ease-in;
+    
+        &-title {
+            border-bottom:  1px solid rgba(0,0,0,0.1);
+            background-color: var(--primary-light-color);
+        }
+    
+        &-text {
+            line-height: 16px;
+        }
+    
+        &:hover {
+            background-color: rgba($color: #feb626, $alpha: 0.1);
+            transform: scale(1.05);
+            transition: all 0.2s ease-in;
+        }
+    }
+}
+
+
+.krishna-image {
+    width: 350px;
+}
+
+//custom-style for pagination-controll
+
+.pagination {
+    .ngx-pagination {
+        @apply flex justify-center;
+
+        li {
+            @apply mx-2 flex justify-center items-center rounded-full;
+            width: 35px;
+            height: 35px;
+            transition: background-color 0.2s ease-in;
+            
+            @screen sm-max {
+                width: 32px;
+                height: 28px;
+            }
+            &:hover {
+                @apply bg-gray-200;
+                color: var(--text-color);
+                transition: background-color 0.2s ease-in;
+            }
+        }
+        a:hover {
+            @apply bg-transparent;
+            transition: background-color 0.2s ease-in;
+        }
+        .pagination-next,
+        .pagination-previous {
+            @apply flex justify-center items-center;
+        }
+        .pagination-next.disabled::after,
+        .pagination-next a::after {
+            @apply ml-0;
+        }
+        .pagination-previous a::before,
+        .pagination-previous.disabled::before {
+            @apply mr-0;
+        }
+        .small-screen {
+            @apply hidden;
+        }
+        .current {
+            background-color: var(--primary--color);
+        }
+    }
+}

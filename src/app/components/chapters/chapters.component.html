@@ -1,0 +1,25 @@
+<section class="section__container section content-container">
+    <h1 class="text-6xl primary-text-color mb-8 font-semibold md-max:mt-7">Chapters</h1>
+    <div class="chapters__summary mb-8">
+        In the Bhagavad Gita, there are a total of 18 chapters, out of which <span class="primary-text-color">1st to 6th</span> is talk about how one should do his duties and is called
+        <span class="primary-text-color">Karma Yoga</span>.
+        <br>
+        The second set of 6 chapters from chapter <span class="primary-text-color">7th to 12th</span> is called as <span class="primary-text-color">Bhakti Yoga</span>.
+        <br>
+        The third set of 6 chapters from chapter <span class="primary-text-color">13th to 18th</span> is called as <span class="primary-text-color">Jaana Yoga</span>.
+    </div>
+    <div class="chapters__container grid justify-center" *ngIf="isResponse">
+        <div class="chapters__card p-4 rounded-lg flex justify-center flex-col hover:cursor-pointer" *ngFor="let chapter of totalChapters" (click)="gotoChapter(chapter.id)">
+            <h3 class="font-normal text-2xl">{{chapter.name_translated}}</h3>
+            <div class="flex">
+                <span class="chapters__text text-gray-500 mr-2">Chapter {{chapter.id}},</span>
+                <span class="chapters__verses text-gray-500">Verses {{chapter.verses_count}}</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Loading Spinner -->
+<div class="loading-spinner" *ngIf="!isResponse">
+    <p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="4" animationDuration=".5s"></p-progressSpinner>
+</div>

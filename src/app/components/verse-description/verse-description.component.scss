@@ -1,0 +1,186 @@
+.verse {
+    &__card {
+        width: 850px;
+        box-shadow: 0 1px 20px rgba($color: #636363, $alpha: 0.1);
+        animation: faded 0.4s ease-in;
+        @screen sm-max {
+            @apply w-full;
+        }
+
+        &-image {
+            width: 320px;
+            height: auto;
+            animation: faded 0.4s ease-in;
+        }
+        
+        &-title {
+            font-size: 32px;
+            line-height: 30px;
+
+            @screen sm-max {
+                @apply text-xl;
+            }
+        }
+
+        &-slok {
+            line-height: 18px;
+            font-size: 22px;
+            color: #4f4141;
+
+            @screen sm-max {
+                @apply mt-2;
+                font-size: 16px;
+                line-height: 16px;
+            }
+        }
+
+        &-transliteration {
+            letter-spacing: 0.8px;
+            font-size: 18px;
+            font-family: monospace;
+            color: #4f4141;
+
+            @screen sm-max {
+                font-size: 14px;
+                line-height: 16px;
+            }
+        }
+
+        &-meaning {
+            &--text {
+                font-family: monospace;
+
+                @screen sm-max {
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+            }
+        }
+
+        .footer-text {
+            letter-spacing: 1px;
+        }
+    }
+
+    .p-button {
+        @apply border-transparent;
+        background-color: var(--primary--color);
+
+        &:hover, &:focus {
+            @apply border-transparent shadow-none;
+            background-color: var(--primary-light-color);
+        }
+
+        @screen md-max {
+            width: 60px;
+            height: 40px;
+        }
+        @screen sm-max {
+            width: 40px;
+        }
+    }
+}
+
+.summary {
+    @apply mt-7;
+    
+    @screen md-max {
+        @apply mt-14;
+    }
+
+    &__title {
+        @screen md-max {
+            @apply mt-7;
+        }
+    }
+
+    &__container {
+        grid-template-columns: repeat(auto-fill, 470px);
+        grid-gap: 24px;
+
+        @screen sm-max {
+            grid-template-columns: repeat(auto-fill, 100%);
+        }
+    }
+
+    &__dialog {
+        .p-dialog  {
+            width: 50vw;
+            @screen sm-max {
+                width: 90vw;
+            }
+        }
+        .p-dialog-content {
+            @apply overflow-y-scroll;
+            max-height: 600px;
+            p {
+                line-height: 32px;
+                font-size: 18px
+            }
+        }
+        .p-dialog-header {
+            color: var(--primary--color)
+        }
+        .p-component-overlay-enter {
+            @apply animate-none;
+        }
+        .p-component-overlay {
+            @apply bg-transparent;
+        }
+    }
+
+    &__card {
+        box-shadow: 0 1px 20px rgba($color: #636363, $alpha: 0.1);
+        height: 255px;
+
+        &:not(:last-child) {
+            @apply mb-6;
+        }
+
+        &-description {
+            font-size: 16px;
+            line-height: 32px;
+
+            overflow: hidden;
+            text-overflow:ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+        }
+
+        &-read-text,
+        &-author {
+            color: var(--primary-light-color);
+        }
+    }
+}
+
+.left-icon, .right-icon {
+    @screen sm-max {
+        @apply hidden;
+    }
+}
+.left-icon {
+    @apply mr-8;
+}
+.right-icon {
+    @apply ml-8;
+}
+
+.mobile-button {
+    @apply flex hidden w-full absolute justify-between mt-2;
+    bottom: 32px;
+
+    @screen sm-max {
+        @apply flex;
+    }
+}
+
+@keyframes faded {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

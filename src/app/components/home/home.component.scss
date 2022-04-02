@@ -1,0 +1,48 @@
+.home {
+    &__content {
+        @apply flex;
+    }
+    
+    &__text {
+        width: 65%;
+        font-size: 18px;
+        line-height: 30px;
+
+        @screen md-max {
+            @apply w-full;
+        }
+    }
+    &__image {
+        height: 100%;
+        @screen sm-max {
+            @apply h-auto;
+        }
+    }
+}
+
+.redirect-button {
+    width: 220px;
+    color: #f6f9fc;
+    background-color: var(--primary--color);
+    transition: all 0.2s ease-in;
+    &:hover {
+        background-color: var( --primary-light-color);
+        transition: all 0.2s ease-in;
+    }
+}
+
+.right-arrow-icon {
+    animation: ping 2s ease infinite;
+}
+
+@keyframes ping {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform:  translateX(-10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
